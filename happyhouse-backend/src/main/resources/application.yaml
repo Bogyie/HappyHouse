@@ -1,0 +1,41 @@
+server:
+  port: 9999
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/happyhouse?useUniCode=yes&characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: ssafy
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:data.sql
+
+springdoc:
+  version: 1.0.0
+  swagger-ui:
+    path: /api-docs  # swagger ui 주소
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /api-docs/json
+    groups:
+      enabled: true
+  default-consumes-media-type: application/json;charset=UTF-8
+  default-produces-media-type: application/json;charset=UTF-8
+  packages-to-scan: com.ssafy.happyhouse.controller
+
+jwt:
+  header: Authorization
+  secret-plane: MbQeThWmZq4t7w!z%C&F)J@NcRfUjXn2r5u8x/A?D(G-KaPdSgVkYp3s6v9y$B&E
+  secret-base64: TWJRZVRoV21acTR0N3cheiVDJkYpSkBOY1JmVWpYbjJyNXU4eC9BP0QoRy1LYVBkU2dWa1lwM3M2djl5JEImRQ==
+  access-token-expire: 18000000 # 300 minutes
+  refresh-token-expire: 604800000 #  7 days
+  grant-type: Bearer

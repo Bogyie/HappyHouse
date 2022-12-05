@@ -1,0 +1,410 @@
+
+## Request handling
+- Filter
+  - [ ] 관리자 페이지 접근 관리
+  - [ ] JWT 만료 확인 & 만료시 갱신 요청 처리
+  - [ ] 요청 빈도 확인 & 한도 처리 ( 초당 요청 횟수 제한 )
+- Interceptor
+  - [ ] 모든 요청에 대한 로깅 처리 ( debug level )
+  - [ ] 권한이 필요한 요청에 대한 권한 인증 & 인가 처리
+  - [ ] 요청된 서비스 DB에 기록
+- Controller(HandlerMapper)
+  - [ ] BoardController : 게시판 요청 처리
+    - [ ] BoardService
+    - [ ] ArticleService
+  - [ ] ArticleController : 아티클 요청 처리
+    - [ ] ArticleService
+  - [ ] AuthController : 인증 & 인가 요청 처리
+    - [ ] AuthService
+    - [ ] MemberService
+  - [ ] MemberController : 멤버 요청 처리
+    - [ ] MemberService
+  - [ ] HouseController : 주택 거래 정보 요청 처리
+    - [ ] HouseService
+  - [ ] NewsController : 주택 뉴스 요청 처리
+    - [ ] NewsService
+- Interceptor
+  - [ ] 요청 처리 시간 체크
+  - [ ] 서비스 별 요청 처리 결과 (성공, 실패) 기록
+  - [ ] 실패한 요청에 대한 
+- Filter
+
+
+## API Spec & TODO
+- /board
+  - `GET` : 게시판 목록
+    - [3/4] [controller](./src/main/java/com/ssafy/happyhouse/controller/BoardController.java)
+        - [x] feature
+        - [x] swagger
+        - [x] logging
+        - [ ] test
+    - [3/4] [service](./src/main/java/com/ssafy/happyhouse/service/BoardService.java)
+        - [x] feature
+        - [x] javadoc
+        - [x] logging
+        - [ ] test
+  - `POST` : 게시판 생성
+    - [3/4] [controller](./src/main/java/com/ssafy/happyhouse/controller/BoardController.java)
+        - [x] feature
+        - [x] swagger
+        - [x] logging
+        - [ ] test
+    - [3/4] [service](./src/main/java/com/ssafy/happyhouse/service/BoardService.java)
+        - [x] feature
+        - [x] javadoc
+        - [x] logging
+        - [ ] test
+  - /{boardId}
+    - `GET` : 게시판 상세정보
+      - [3/4] [controller](./src/main/java/com/ssafy/happyhouse/controller/BoardController.java)
+          - [x] feature
+          - [x] swagger
+          - [x] logging
+          - [ ] test
+      - [3/4] [service](./src/main/java/com/ssafy/happyhouse/service/BoardService.java)
+          - [x] feature
+          - [x] javadoc
+          - [x] logging
+          - [ ] test
+    - `PATCH` : 게시판 설정 수정
+      - [3/4] [controller](./src/main/java/com/ssafy/happyhouse/controller/BoardController.java)
+          - [x] feature
+          - [x] swagger
+          - [x] logging
+          - [ ] test
+      - [3/4] [service](./src/main/java/com/ssafy/happyhouse/service/BoardService.java)
+          - [x] feature
+          - [x] javadoc
+          - [x] logging
+          - [ ] test
+    - `DELETE` : 게시판 삭제
+      - [3/4] [controller](./src/main/java/com/ssafy/happyhouse/controller/BoardController.java)
+          - [x] feature
+          - [x] swagger
+          - [x] logging
+          - [ ] test
+      - [3/4] [service](./src/main/java/com/ssafy/happyhouse/service/BoardService.java)
+          - [x] feature
+          - [x] javadoc
+          - [x] logging
+          - [ ] test
+    - /articles
+      - `GET` : 게시판의 게시글 가져오기
+        - [1/4] controller
+          - [x] feature
+          - [ ] swagger
+          - [ ] logging
+          - [ ] test
+        - [1/4] service
+          - [x] feature
+          - [ ] javadoc
+          - [ ] logging
+          - [ ] test
+
+- /article
+  - `GET` : 글 검색
+    - [0/4] controller
+        - [ ] feature
+        - [ ] swagger
+        - [ ] logging
+        - [ ] test
+    - [0/4] service
+        - [ ] feature
+        - [ ] javadoc
+        - [ ] logging
+        - [ ] test
+  - `POST` : 글 생성
+    - [1/4] controller
+        - [x] feature
+        - [ ] swagger
+        - [ ] logging
+        - [ ] test
+    - [1/4] service
+        - [x] feature
+        - [ ] javadoc
+        - [ ] logging
+        - [ ] test
+  - /{articleId}
+    - `GET` : 글 상세정보
+      - [1/4] controller
+          - [x] feature
+          - [ ] swagger
+          - [ ] logging
+          - [ ] test
+      - [1/4] service
+          - [x] feature
+          - [ ] javadoc
+          - [ ] logging
+          - [ ] test
+    - `PATCH` : 글 수정
+      - [1/4] controller
+          - [ ] feature
+          - [ ] swagger
+          - [ ] logging
+          - [ ] test
+      - [1/4] service
+          - [x] feature
+          - [ ] javadoc
+          - [ ] logging
+          - [ ] test
+    - `DELETE` : 글 삭제
+      - [1/4] controller
+          - [x] feature
+          - [ ] swagger
+          - [ ] logging
+          - [ ] test
+      - [1/4] service
+          - [x] feature
+          - [ ] javadoc
+          - [ ] logging
+          - [ ] test
+    - /comments
+      - `GET` : 게시글의 댓글 가져오기
+        - [1/4] controller
+          - [x] feature
+          - [ ] swagger
+          - [ ] logging
+          - [ ] test
+        - [1/4] service
+          - [x] feature
+          - [ ] javadoc
+          - [ ] logging
+          - [ ] test
+
+- /comment
+  - `POST` : 댓글 작성
+    - [1/4] controller
+      - [x] feature
+      - [ ] swagger
+      - [ ] logging
+      - [ ] test
+    - [1/4] service
+      - [x] feature
+      - [ ] javadoc
+      - [ ] logging
+      - [ ] test
+  - /{commentId}
+    - `GET`
+      - [1/4] controller
+        - [ ] feature
+        - [ ] swagger
+        - [ ] logging
+        - [ ] test
+      - [1/4] service
+        - [ ] feature
+        - [ ] javadoc
+        - [ ] logging
+        - [ ] test
+    - `DELETE`
+      - [1/4] controller
+        - [x] feature
+        - [ ] swagger
+        - [ ] logging
+        - [ ] test
+      - [1/4] service
+        - [x] feature
+        - [ ] javadoc
+        - [ ] logging
+        - [ ] test
+
+- /member
+  - `POST` : 회원 가입
+    - [1/4] controller
+      - [x] feature
+      - [ ] swagger
+      - [ ] logging
+      - [ ] test
+    - [1/4] service
+      - [x] feature
+      - [ ] javadoc
+      - [ ] logging
+      - [ ] test
+  - `GET` : 멤버 검색
+    - [0/4] controller
+        - [ ] feature
+        - [ ] swagger
+        - [ ] logging
+        - [ ] test
+    - [0/4] service
+        - [ ] feature
+        - [ ] javadoc
+        - [ ] logging
+        - [ ] test
+  - /{memberId}
+    - `GET` : 멤버 상세정보
+      - [1/4] controller
+          - [x] feature
+          - [ ] swagger
+          - [ ] logging
+          - [ ] test
+      - [1/4] service
+          - [x] feature
+          - [ ] javadoc
+          - [ ] logging
+          - [ ] test
+    - `PATCH` : 멤버 정보 업데이트 (비밀번호 제외)
+      - [1/4] controller
+          - [x] feature
+          - [ ] swagger
+          - [ ] logging
+          - [ ] test
+      - [1/4] service
+          - [x] feature
+          - [ ] javadoc
+          - [ ] logging
+          - [ ] test
+    - `DELETE` : 멤버 삭제
+      - [1/4] controller
+          - [x] feature
+          - [ ] swagger
+          - [ ] logging
+          - [ ] test
+      - [1/4] service
+          - [x] feature
+          - [ ] javadoc
+          - [ ] logging
+          - [ ] test
+    - /bookmarks
+      - `GET` : 멤버의 관심지역 목록
+        - [0/4] controller
+          - [ ] feature
+          - [ ] swagger
+          - [ ] logging
+          - [ ] test
+        - [0/4] service
+          - [ ] feature
+          - [ ] javadoc
+          - [ ] logging
+          - [ ] test
+    - /articles
+      - `GET` : 멤버가 작성한 게시글 목록
+        - [0/4] controller
+          - [ ] feature
+          - [ ] swagger
+          - [ ] logging
+          - [ ] test
+        - [0/4] service
+          - [ ] feature
+          - [ ] javadoc
+          - [ ] logging
+          - [ ] test
+    - /comments
+      - `GET` : 멤버가 작성한 댓글 목록
+        - [0/4] controller
+          - [ ] feature
+          - [ ] swagger
+          - [ ] logging
+          - [ ] test
+        - [0/4] service
+          - [ ] feature
+          - [ ] javadoc
+          - [ ] logging
+          - [ ] test
+    - /password
+      - `PUT` : 비밀번호 업데이트
+        - [1/4] controller
+          - [x] feature
+          - [ ] swagger
+          - [ ] logging
+          - [ ] test
+        - [1/4] service
+          - [x] feature
+          - [ ] javadoc
+          - [ ] logging
+          - [ ] test
+  - /login
+    - `POST` : 로그인 ( 토큰 최초 발급 )
+      - [1/4] controller
+        - [x] feature
+        - [ ] swagger
+        - [ ] logging
+        - [ ] test
+      - [1/4] service
+        - [x] feature
+        - [ ] javadoc
+        - [ ] logging
+        - [ ] test
+    - `PUT` : 토큰 재발급
+      - [0/4] controller
+        - [ ] feature
+        - [ ] swagger
+        - [ ] logging
+        - [ ] test
+      - [0/4] service
+        - [ ] feature
+        - [ ] javadoc
+        - [ ] logging
+        - [ ] test
+
+- /bookmark
+  - `GET` : 관심 지역 북마크 목록
+    - [0/4] controller
+      - [ ] feature
+      - [ ] swagger
+      - [ ] logging
+      - [ ] test
+    - [0/4] service
+      - [ ] feature
+      - [ ] javadoc
+      - [ ] logging
+      - [ ] test
+  - `POST` : 관심 지역 북마크 생성
+    - [0/4] controller
+      - [ ] feature
+      - [ ] swagger
+      - [ ] logging
+      - [ ] test
+    - [0/4] service
+      - [ ] feature
+      - [ ] javadoc
+      - [ ] logging
+      - [ ] test
+  - /{bookmarkId}
+    - `GET` : 관심 지역 북마크 상세정보
+      - [0/4] controller
+        - [ ] feature
+        - [ ] swagger
+        - [ ] logging
+        - [ ] test
+      - [0/4] service
+        - [ ] feature
+        - [ ] javadoc
+        - [ ] logging
+        - [ ] test
+    - `DELETE` : 관심 지역 북마크 삭제
+      - [0/4] controller
+        - [ ] feature
+        - [ ] swagger
+        - [ ] logging
+        - [ ] test
+      - [0/4] service
+        - [ ] feature
+        - [ ] javadoc
+        - [ ] logging
+        - [ ] test
+
+- /news
+  - `GET` : 부동산 뉴스 기사 목록
+    - [1/4] controller
+        - [x] feature
+        - [ ] swagger
+        - [ ] logging
+        - [ ] test
+    - [1/4] service
+        - [x] feature
+        - [ ] javadoc
+        - [ ] logging
+        - [ ] test
+
+- /house
+  - `GET` : 부동산 거래 정보
+    - [1/4] controller
+        - [x] feature
+        - [ ] swagger
+        - [ ] logging
+        - [ ] test
+    - [1/4] service
+        - [x] feature
+        - [ ] javadoc
+        - [ ] logging
+        - [ ] test
